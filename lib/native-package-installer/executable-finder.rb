@@ -33,17 +33,6 @@ class NativePackageInstaller
     end
 
     def find
-      extensions = detect_extensions
-      paths.each do |path|
-        executable_file = File.join(path, @basename)
-        return executable_file if executable?(executable_file)
-        extensions.each do |extension|
-          executable_file_with_extension = executable_file + extension
-          if executable?(executable_file_with_extension)
-            return executable_file_with_extension
-          end
-        end
-      end
       nil
     end
 
